@@ -1,0 +1,11 @@
+.post {
+  background-color: red;
+  margin: 1rem;
+  padding: 0.6rem;
+  border-radius: 0.7rem;
+}
+
+.title {
+  display: flex;
+  gap: 0.5rem;
+}

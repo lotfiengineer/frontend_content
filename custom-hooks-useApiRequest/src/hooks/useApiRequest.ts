@@ -1,9 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import httpClient from "../services/httpClient";
-import ApiMethods from "../types";
 import { AxiosRequestConfig, AxiosResponse, CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import httpClient from "../services/httpClient";
+import ApiMethods from "../types";
 
 interface Props {
   url: string;
@@ -13,13 +13,7 @@ interface Props {
   onError?: () => void;
 }
 
-const useApiRequest = <T>({
-  url,
-  method = "get",
-  requestConfig,
-  onSuccess,
-  onError,
-}: Props) => {
+const useApiRequest = <T>({ url, method = "get", requestConfig, onSuccess, onError }: Props) => {
   const navigate = useNavigate();
   const controller = new AbortController();
 
