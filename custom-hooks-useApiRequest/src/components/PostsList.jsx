@@ -9,10 +9,13 @@ const PostsList = () => {
       {data?.data.map((post) => (
         <div className="post" key={post.id}>
           <div className="title">
-            <div>Title: </div>
+            <div>Title:</div>
             <div>{post.title}</div>
           </div>
-          <div>{post.body}</div>
+          <div className="description">
+            <div>description:</div>
+            <div>{post.body}</div>
+          </div>
         </div>
       ))}
     </div>
