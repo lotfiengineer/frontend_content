@@ -4,6 +4,14 @@
   padding: 0;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -18,4 +26,15 @@ input {
   border-radius: 0.5rem;
   outline: none;
   border: 1px solid rgb(157, 157, 157);
+}
+
+.users-list {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.6rem;
+}
+
+.user-list-title {
+  text-align: center;
 }

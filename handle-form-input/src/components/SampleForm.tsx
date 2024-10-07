@@ -1,28 +1,35 @@
 import React, { useState } from "react";
+import { User } from "../types/User";
 
-type FormValues = {
-  fullName: string;
-  username: string;
-};
+interface Props {
+  users: User[];
+  setUsers: (users: User[]) => void;
+}
 
-const SampleForm = () => {
-  const [formValues, setFormValues] = useState<FormValues>({
+const SampleForm = ({ users, setUsers }: Props) => {
+  const [formValues, setFormValues] = useState<User>({
     fullName: "",
     username: "",
   });
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+
+    // [] -> to compute property names dynamically.
     setFormValues((prev) => ({
       ...prev,
       [name]: value,
     }));
   };
 
-  console.log(formValues);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setUsers([...users, formValues]);
+  };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <h1>SampleForm</h1>
 
       <input
@@ -37,9 +44,11 @@ const SampleForm = () => {
         type="text"
         onChange={handleChange}
         name="username"
-        placeholder="Username"
+        placeholder="username"
         value={formValues.username}
       />
+
+      <button type="submit">Create New User</button>
     </form>
   );
 };
