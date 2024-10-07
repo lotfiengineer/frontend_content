@@ -7,6 +7,7 @@ interface Props {
 }
 
 const BadFormExample = ({ users, setUsers }: Props) => {
+  // make fullName and username seperate states
   const [formValues, setFormValues] = useState<User>({
     fullName: "",
     username: "",
