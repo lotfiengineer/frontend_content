@@ -12,16 +12,6 @@ const BadFormExample = ({ users, setUsers }: Props) => {
     username: "",
   });
 
-  //   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //     const { name, value } = event.target;
-
-  //     // [] -> to compute property names dynamically.
-  //     setFormValues((prev) => ({
-  //       ...prev,
-  //       [name]: value,
-  //     }));
-  //   };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
