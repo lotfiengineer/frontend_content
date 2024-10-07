@@ -6,21 +6,21 @@ interface Props {
   setUsers: (users: User[]) => void;
 }
 
-const SampleForm = ({ users, setUsers }: Props) => {
+const BadFormExample = ({ users, setUsers }: Props) => {
   const [formValues, setFormValues] = useState<User>({
     fullName: "",
     username: "",
   });
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
+  //   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //     const { name, value } = event.target;
 
-    // [] -> to compute property names dynamically.
-    setFormValues((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
+  //     // [] -> to compute property names dynamically.
+  //     setFormValues((prev) => ({
+  //       ...prev,
+  //       [name]: value,
+  //     }));
+  //   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,11 +30,16 @@ const SampleForm = ({ users, setUsers }: Props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>SampleForm</h1>
+      <h1>Bad Form Example</h1>
 
       <input
         type="text"
-        onChange={handleChange}
+        onChange={(e) =>
+          setFormValues({
+            ...formValues,
+            fullName: e.target.value,
+          })
+        }
         name="fullName"
         placeholder="full name"
         value={formValues.fullName}
@@ -42,7 +47,12 @@ const SampleForm = ({ users, setUsers }: Props) => {
 
       <input
         type="text"
-        onChange={handleChange}
+        onChange={(e) =>
+          setFormValues({
+            ...formValues,
+            username: e.target.value,
+          })
+        }
         name="username"
         placeholder="username"
         value={formValues.username}
@@ -53,4 +63,4 @@ const SampleForm = ({ users, setUsers }: Props) => {
   );
 };
 
-export default SampleForm;
+export default BadFormExample;

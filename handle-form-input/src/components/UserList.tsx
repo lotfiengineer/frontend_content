@@ -9,8 +9,8 @@ const UserList = ({ users }: Props) => {
     <div>
       <h1 className="user-list-title">UserList</h1>
 
-      {users.map((user) => (
-        <div className="users-list">
+      {users.map((user, index) => (
+        <div key={index} className="users-list">
           <div>{user.fullName}</div>
           <div>@{user.username}</div>
         </div>
