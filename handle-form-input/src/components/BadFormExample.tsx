@@ -7,16 +7,19 @@ interface Props {
 }
 
 const BadFormExample = ({ users, setUsers }: Props) => {
-  // make fullName and username seperate states
-  const [formValues, setFormValues] = useState<User>({
-    fullName: "",
-    username: "",
-  });
+  const [fullName, setFullName] = useState("");
+  const [username, setUsername] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    setUsers([...users, formValues]);
+    setUsers([
+      ...users,
+      {
+        fullName,
+        username,
+      },
+    ]);
   };
 
   return (
@@ -25,28 +28,18 @@ const BadFormExample = ({ users, setUsers }: Props) => {
 
       <input
         type="text"
-        onChange={(e) =>
-          setFormValues({
-            ...formValues,
-            fullName: e.target.value,
-          })
-        }
+        onChange={(e) => setFullName(e.target.value)}
         name="fullName"
-        placeholder="full name"
-        value={formValues.fullName}
+        placeholder="Full Name"
+        value={fullName}
       />
 
       <input
         type="text"
-        onChange={(e) =>
-          setFormValues({
-            ...formValues,
-            username: e.target.value,
-          })
-        }
+        onChange={(e) => setUsername(e.target.value)}
         name="username"
-        placeholder="username"
-        value={formValues.username}
+        placeholder="Username"
+        value={username}
       />
 
       <button type="submit">Create New User</button>

@@ -35,16 +35,20 @@ const GoodFormExample = ({ users, setUsers }: Props) => {
       <input
         type="text"
         onChange={handleChange}
+        // the name attribute of the input
+        // must match the property name of formValues state
         name="fullName"
-        placeholder="full name"
+        placeholder="Full Name"
         value={formValues.fullName}
       />
 
       <input
         type="text"
         onChange={handleChange}
+        // the name attribute of the input
+        // must match the property name of formValues state
         name="username"
-        placeholder="username"
+        placeholder="Username"
         value={formValues.username}
       />
 

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SampleForm from "./components/GoodFormExample";
+import GoodFormExample from "./components/GoodFormExample";
 import UserList from "./components/UserList";
 import { User } from "./types/User";
 // import BadFormExample from "./components/BadFormExample";
@@ -9,7 +9,7 @@ function App() {
 
   return (
     <div className="app">
-      <SampleForm users={users} setUsers={setUsers} />
+      <GoodFormExample users={users} setUsers={setUsers} />
       {/* <BadFormExample users={users} setUsers={setUsers} /> */}
       <UserList users={users} />
     </div>
